@@ -7,7 +7,7 @@ RUN echo deb http://archive.ubuntu.com/ubuntu precise universe >> /etc/apt/sourc
 RUN echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list
 RUN apt-get update
 RUN apt-get install git jenkins -y
-ADD install_scala.sh /tmp
+ADD install_scala.sh /tmp/install_scala.sh
 RUN /bin/bash /tmp/install_scala.sh
 RUN sudo -u jenkins ssh-keygen -q -t rsa -f ~/.ssh/id_rsa -N ""
 RUN service jenkins stop
